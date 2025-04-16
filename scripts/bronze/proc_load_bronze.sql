@@ -20,13 +20,13 @@ BEGIN
 	DECLARE @start_batch_time DATETIME, @end_batch_time DATETIME, @start_time DATETIME, @end_time DATETIME;
 	BEGIN TRY
 		SET @start_batch_time = GETDATE();
-		PRINT '=========================================';
+		PRINT '=======================================================';
 		PRINT 'Loading Bronze Layer';
-		PRINT '=========================================';
+		PRINT '=======================================================';
 
-		PRINT '-----------------------------------------';
+		PRINT '-------------------------------------------------------';
 		PRINT 'Loading CRM Tables';
-		PRINT '-----------------------------------------';
+		PRINT '-------------------------------------------------------';
 
 		SET @start_time = GETDATE();
 		PRINT '>> Truncating Table: bronze.crm_cust_info';
@@ -41,8 +41,10 @@ BEGIN
 			TABLOCK
 		);
 		SET @end_time = GETDATE();
+		PRINT '';
 		PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
-		PRINT '>> -------------';
+		PRINT '>> ---------------------------';
+		PRINT '';
 
 		SET @start_time = GETDATE();
 		PRINT '>> Truncating Table: bronze.crm_prd_info';
@@ -57,8 +59,10 @@ BEGIN
 			TABLOCK
 		);
 		SET @end_time = GETDATE();
+		PRINT '';
 		PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
-		PRINT '>> -------------';
+		PRINT '>> ---------------------------';
+		PRINT '';
 
 		SET @start_time = GETDATE();
 		PRINT '>> Truncating Table: bronze.crm_sales_details';
@@ -73,12 +77,14 @@ BEGIN
 			TABLOCK
 		);
 		SET @end_time = GETDATE();
+		PRINT '';
 		PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
-		PRINT '>> -------------';
+		PRINT '>> ---------------------------';
+		PRINT '';
 	
-		PRINT '-----------------------------------------';
+		PRINT '-------------------------------------------------------';
 		PRINT 'Loading ERP Tables';
-		PRINT '-----------------------------------------';
+		PRINT '-------------------------------------------------------';
 
 		SET @start_time = GETDATE();
 		PRINT '>> Truncating Table: bronze.erp_cust_az12';
@@ -93,8 +99,10 @@ BEGIN
 			TABLOCK
 		);
 		SET @end_time = GETDATE();
+		PRINT '';
 		PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
-		PRINT '>> -------------';
+		PRINT '>> ---------------------------';
+		PRINT '';
 
 		SET @start_time = GETDATE();
 		PRINT '>> Truncating Table: bronze.erp_loc_a101';
@@ -109,8 +117,10 @@ BEGIN
 			TABLOCK
 		);
 		SET @end_time = GETDATE();
+		PRINT '';
 		PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
-		PRINT '>> -------------';
+		PRINT '>> ---------------------------';
+		PRINT '';
 
 		SET @start_time = GETDATE();
 		PRINT '>> Truncating Table: bronze.erp_px_cat_g1v2';
@@ -125,20 +135,25 @@ BEGIN
 			TABLOCK
 		);
 		SET @end_time = GETDATE();
+		PRINT '';
 		PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
-		PRINT '>> -------------';
+		PRINT '>> ---------------------------';
+		PRINT '';
 		SET @end_batch_time = GETDATE();
-		PRINT '=========================================';
+		PRINT '=======================================================';
 		PRINT 'Loading Bronze Layer is Completed';
 		PRINT '   - Total Load Duration: ' + CAST(DATEDIFF(second, @start_batch_time, @end_batch_time) AS NVARCHAR) + ' seconds';
-		PRINT '=========================================';
+		PRINT '=======================================================';
 	END TRY
 	BEGIN CATCH
-		PRINT '=========================================';
+		PRINT '=======================================================';
 		PRINT 'ERROR OCCURED DURING LOADING BRONZE LAYER';
-		PRINT 'Error Message: ' + ERROR_MESSAGE();
-		PRINT 'Error Number: ' + CAST (ERROR_NUMBER() AS NVARCHAR);
-		PRINT 'Error State: ' + CAST (ERROR_STATE() AS NVARCHAR);
-		PRINT '=========================================';
+		PRINT 'Error in procedure: ' + OBJECT_NAME(@@PROCID);
+		PRINT 'Error message: ' + ERROR_MESSAGE();
+		PRINT 'Error number: ' + CAST(ERROR_NUMBER() AS NVARCHAR);
+		PRINT 'Error line: ' + CAST(ERROR_LINE() AS NVARCHAR);
+		PRINT 'Error severity: ' + CAST(ERROR_SEVERITY() AS NVARCHAR);
+		PRINT 'Error state: ' + CAST(ERROR_STATE() AS NVARCHAR);
+		PRINT '=======================================================';
 	END CATCH
 END
