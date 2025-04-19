@@ -2,7 +2,6 @@
 This portfolio project showcases a modern approach to data warehousing and analytics using SQL Server. It covers key components such as ETL processes, data modeling, and analytics, while reflecting industry-standard practices in modern data engineering.
 
 ## Project Overview
-
 This project involves:
 
 1. **Data Architecture**: Designing a Modern Data Warehouse Using the Medallion Architecture: **Bronze**, **Silver**, and **Gold** Layers.
@@ -38,7 +37,7 @@ The Gold Layer integrates and aggregates data to create business-ready informati
 - **[DrawIO](https://www.drawio.com/):** Tool to design data architecture, models, flows, and diagrams.
 - **[Notion](https://www.notion.com/):** All-in-one tool for project management and planning.
 
-Repository Structure
+## Repository Structure
 ```
 data-engineering-warehouse-project/
 │
@@ -53,11 +52,32 @@ data-engineering-warehouse-project/
 │
 ├── scripts/                            # SQL scripts for ETL and transformations
 │   ├── bronze/                         # Scripts for extracting and loading raw data
-│   ├── silver/                         # Scripts for cleaning and transforming data
-│   └── gold/                           # Scripts for creating analytical models
+│   ├── gold/                           # Scripts for creating analytical models
+│   └── silver/                         # Scripts for cleaning and transforming data
 │
 ├── tests/                              # Scripts for validating the quality of the scripts
 │
 ├── README.md                           # Project overview and information
 └── LICENSE                             # License information for the repository
 ```
+
+## License
+This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and share this project with proper attribution.
+
+## About Me
+Hello, I am Mike Ebbe, an IT/AI graduate aspiring to specialize in data engineering! This project is my way of further delving into world of data by getting acquainted with data architectures and ETL. I hope to learn a lot more!
+
+### Tools and Methodologies I Want to Learn in Future Projects:
+- Cloud Data Platforms:
+    - Databricks
+    - Snowflake
+- Big Data Processing Frameworks
+    - Apache Spark
+    - Hadoop
+- Event Streaming Platforms:
+    - Kafka
+- Data Warehousing Methodologies:
+    - Inmon
+- Databases
+    - MongoDB
+    - PostgreSQL
