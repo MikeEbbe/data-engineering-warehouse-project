@@ -65,7 +65,7 @@ data-engineering-warehouse-project/
 This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and share this project with proper attribution.
 
 ## About Me
-Hello, I am Mike Ebbe, an IT/AI graduate aspiring to specialize in data engineering! This project is my way of further delving into world of data by getting acquainted with data architectures and ETL. I hope to learn a lot more!
+Hello, I am [Mike Ebbe](https://www.linkedin.com/in/mike-ebbe/), an IT/AI graduate aspiring to specialize in data engineering! This project is my way of further delving into world of data by getting acquainted with data architectures and ETL. I hope to learn a lot more!
 
 ### Tools and Methodologies I Want to Learn in Future Projects:
 - Cloud Data Platforms:
