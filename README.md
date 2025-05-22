@@ -52,6 +52,7 @@ data-engineering-warehouse-project/
 │
 ├── scripts/                            # SQL scripts for ETL and transformations
 │   ├── bronze/                         # Scripts for extracting and loading raw data
+│   ├── data-analysis/                  # Scripts for data analysis and reporting 
 │   ├── gold/                           # Scripts for creating analytical models
 │   └── silver/                         # Scripts for cleaning and transforming data
 │
